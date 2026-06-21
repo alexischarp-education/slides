@@ -1,0 +1,35 @@
+{
+  "name": "@alexischarp/slides-theme",
+  "version": "0.1.0",
+  "license": "UNLICENSED",
+  "type": "module",
+  "engines": {
+    "node": ">=18.0.0",
+    "slidev": ">=v0.48.0"
+  },
+  "slidev": {
+    "defaults": {
+      "aspectRatio": "16/9",
+      "canvasWidth": 980,
+      "fonts": {
+        "sans": "Space Grotesk",
+        "mono": "JetBrains Mono",
+        "weights": "300,400,500,600,700",
+        "fallbacks": true
+      },
+      "colorSchema": "dark",
+      "transition": "slide-left"
+    },
+    "colorSchema": "both"
+  },
+  "scripts": {
+    "dev": "slidev example.md --open",
+    "build": "slidev build example.md",
+    "export": "slidev export example.md"
+  },
+  "devDependencies": {
+    "@slidev/cli": "^52.16.0",
+    "@slidev/types": "^52.16.0",
+    "vue": "^3.5.33"
+  }
+}

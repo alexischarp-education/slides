@@ -1,0 +1,183 @@
+#app,
+#page-root {
+  background: var(--ac-bg);
+  color: var(--ac-fg);
+}
+
+.slidev-slide-content {
+  background: transparent !important;
+}
+
+.slidev-layout {
+  background: transparent;
+  color: var(--ac-fg);
+  font-family: var(--ac-font-sans);
+  font-feature-settings: 'ss01', 'cv01', 'cv02';
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+.slidev-layout h1,
+.slidev-layout h2,
+.slidev-layout h3,
+.slidev-layout h4 {
+  font-family: var(--ac-font-sans);
+  color: var(--ac-fg);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-wrap: balance;
+}
+
+.slidev-layout h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.slidev-layout.default h1 {
+  position: relative;
+  padding-bottom: 0.3em;
+}
+.slidev-layout.default h1::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 2.4em;
+  height: 1px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--ac-primary), var(--ac-accent));
+}
+
+.slidev-layout h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.slidev-layout h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.slidev-layout h6 {
+  color: var(--ac-fg-faint);
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.slidev-layout p,
+.slidev-layout li {
+  color: var(--ac-fg);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.slidev-layout p {
+  color: var(--ac-fg-muted);
+}
+
+.slidev-layout h1 + p {
+  color: var(--ac-fg-muted);
+  font-size: 1rem;
+  opacity: 1;
+  margin-top: 8px;
+}
+
+.slidev-layout a {
+  color: var(--ac-primary);
+  border-bottom: 1px dashed currentColor;
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease;
+}
+.slidev-layout a:hover {
+  color: var(--ac-primary-strong);
+  border-bottom-style: solid;
+}
+
+.slidev-layout strong,
+.slidev-layout b {
+  color: var(--ac-fg);
+  font-weight: 700;
+}
+
+.slidev-layout ul {
+  list-style: none;
+  padding-left: 0;
+}
+.slidev-layout ul > li {
+  position: relative;
+  padding-left: 1.4em;
+}
+.slidev-layout ul > li::before {
+  content: '';
+  position: absolute;
+  left: 0.2em;
+  top: 0.6em;
+  width: 0.4em;
+  height: 0.4em;
+  border-radius: 2px;
+  transform: rotate(45deg);
+  background: var(--ac-fg);
+}
+.slidev-layout ol {
+  list-style: decimal;
+}
+
+.slidev-layout blockquote {
+  position: relative;
+  background: var(--ac-bg-elevated);
+  border: 1px solid var(--ac-border);
+  border-radius: var(--ac-radius);
+  color: var(--ac-fg-muted);
+  padding: 0.7em 1.1em 0.7em 1.5em;
+}
+/* Rounded gradient accent pill, inset from the edges so it never fights the
+   card's corner radius the way a hard `border-left` did. */
+.slidev-layout blockquote::before {
+  content: '';
+  position: absolute;
+  left: 0.6em;
+  top: 0.7em;
+  bottom: 0.7em;
+  width: 3px;
+  border-radius: 999px;
+  background: linear-gradient(180deg, var(--ac-grad-1), var(--ac-grad-2) 55%, var(--ac-grad-3));
+}
+.slidev-layout blockquote > :first-child {
+  margin-top: 0;
+}
+.slidev-layout blockquote > :last-child {
+  margin-bottom: 0;
+}
+
+.slidev-layout table {
+  border-collapse: collapse;
+}
+.slidev-layout th {
+  color: var(--ac-fg);
+  font-weight: 600;
+  border-bottom: 2px solid var(--ac-border-strong);
+}
+.slidev-layout td,
+.slidev-layout tr {
+  border-color: var(--ac-border);
+}
+
+.slidev-layout kbd {
+  background: var(--ac-bg-elevated-2);
+  border: 1px solid var(--ac-border-strong);
+  border-bottom-width: 2px;
+  border-radius: 6px;
+  color: var(--ac-fg);
+  font-family: var(--ac-font-mono);
+  padding: 0.1em 0.45em;
+}
+
+.slidev-layout hr {
+  border: none;
+  height: 1px;
+  background: var(--ac-border);
+  margin: 1.4em 0;
+}

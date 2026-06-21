@@ -1,0 +1,161 @@
+.ac-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+  display: var(--ac-bg-display);
+  background: var(--ac-bg);
+  contain: strict;
+  animation: ac-hue 70s ease-in-out infinite;
+  animation-play-state: var(--ac-anim-state);
+  will-change: filter;
+}
+
+.ac-bg__blob {
+  position: absolute;
+  width: 65vw;
+  height: 65vw;
+  border-radius: 50%;
+  filter: blur(var(--ac-bg-blur));
+  opacity: var(--ac-bg-opacity);
+  mix-blend-mode: screen;
+  will-change: transform;
+  animation-play-state: var(--ac-anim-state);
+  /* Eased segments give each waypoint a gentle slow-in/slow-out swell. */
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+html.light .ac-bg__blob {
+  mix-blend-mode: multiply;
+}
+
+.ac-bg__blob--1 {
+  top: -18%;
+  left: -10%;
+  background: radial-gradient(circle at 50% 50%, var(--ac-grad-1), transparent 68%);
+  animation-name: ac-flow-1;
+  animation-duration: 28s;
+  animation-delay: -3s;
+}
+.ac-bg__blob--2 {
+  top: 5%;
+  right: -16%;
+  background: radial-gradient(circle at 50% 50%, var(--ac-grad-2), transparent 68%);
+  animation-name: ac-flow-2;
+  animation-duration: 36s;
+  animation-delay: -12s;
+}
+.ac-bg__blob--3 {
+  bottom: -24%;
+  left: 12%;
+  background: radial-gradient(circle at 50% 50%, var(--ac-grad-3), transparent 68%);
+  animation-name: ac-flow-3;
+  animation-duration: 32s;
+  animation-delay: -7s;
+}
+.ac-bg__blob--4 {
+  bottom: -18%;
+  right: 8%;
+  width: 50vw;
+  height: 50vw;
+  background: radial-gradient(circle at 50% 50%, var(--ac-grad-4), transparent 68%);
+  animation-name: ac-flow-4;
+  animation-duration: 40s;
+  animation-delay: -18s;
+}
+
+.ac-bg__vignette {
+  position: absolute;
+  inset: 0;
+  background: var(--ac-vignette);
+}
+
+@keyframes ac-flow-1 {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  25% {
+    transform: translate3d(16vw, 10vh, 0) scale(1.15);
+  }
+  50% {
+    transform: translate3d(8vw, 23vh, 0) scale(1.05);
+  }
+  75% {
+    transform: translate3d(-7vw, 12vh, 0) scale(1.18);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+@keyframes ac-flow-2 {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1.1);
+  }
+  25% {
+    transform: translate3d(-15vw, 9vh, 0) scale(0.95);
+  }
+  50% {
+    transform: translate3d(-22vw, 19vh, 0) scale(1.12);
+  }
+  75% {
+    transform: translate3d(-9vw, 7vh, 0) scale(1);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1.1);
+  }
+}
+@keyframes ac-flow-3 {
+  0% {
+    transform: translate3d(0, 0, 0) scale(0.95);
+  }
+  25% {
+    transform: translate3d(13vw, -11vh, 0) scale(1.2);
+  }
+  50% {
+    transform: translate3d(21vw, -4vh, 0) scale(1.05);
+  }
+  75% {
+    transform: translate3d(8vw, -17vh, 0) scale(1.12);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(0.95);
+  }
+}
+@keyframes ac-flow-4 {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1.05);
+  }
+  25% {
+    transform: translate3d(-11vw, -13vh, 0) scale(0.92);
+  }
+  50% {
+    transform: translate3d(-4vw, -21vh, 0) scale(1.1);
+  }
+  75% {
+    transform: translate3d(-17vw, -8vh, 0) scale(0.98);
+  }
+  100% {
+    transform: translate3d(0, 0, 0) scale(1.05);
+  }
+}
+
+@keyframes ac-hue {
+  0% {
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    filter: hue-rotate(16deg);
+  }
+  100% {
+    filter: hue-rotate(0deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ac-bg,
+  .ac-bg__blob {
+    animation: none !important;
+  }
+}

@@ -1,0 +1,222 @@
+/* =============================================================================
+   Layout-specific styles — default / section / intro
+   ========================================================================== */
+
+/* ----- default ------------------------------------------------------------- */
+.slidev-layout.default {
+  display: flex;
+  flex-direction: column;
+}
+.slidev-layout.default > :first-child {
+  margin-top: 0;
+}
+
+/* Vertical rhythm — consistent breathing room between the top-level content
+   blocks of a content slide (title, lead, list, code, callout…). Shared by
+   `default` and `detail`, which lay their slot out as a flat flex column. */
+.slidev-layout.default > * + *,
+.slidev-layout.detail > * + * {
+  margin: 8px 0 0 0 !important;
+}
+/* …except the lead paragraph, which stays tucked under its title. */
+.slidev-layout.default > h1 + p,
+.slidev-layout.detail > h1 + p {
+  margin: 4px 0 12px !important;
+}
+
+.spacing {
+  display: block;
+  margin: 0 !important;
+  margin-bottom: 24px !important;
+}
+
+/* =============================================================================
+   section — a bold, centred section divider
+   ========================================================================== */
+.slidev-layout.section {
+  display: grid;
+  place-items: center;
+  text-align: center;
+  height: 100%;
+}
+.slidev-layout.section .section__inner {
+  position: relative;
+  max-width: 80%;
+}
+
+/* Oversized translucent index sitting behind the title */
+.slidev-layout.section .section__index {
+  font-family: var(--ac-font-sans);
+  font-weight: 700;
+  font-size: 14rem;
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+  background: linear-gradient(135deg, var(--ac-grad-2), var(--ac-grad-1) 60%, var(--ac-grad-3));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  opacity: 0.32;
+  position: absolute;
+  inset: auto 0 60% 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.slidev-layout.section .section__kicker {
+  color: var(--ac-fg-faint);
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  font-size: 0.95rem;
+  margin-bottom: 0.6em;
+}
+
+.slidev-layout.section h1 {
+  font-size: 4.2rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.02;
+  /* Gradient-filled title for maximum visual impact */
+  background: linear-gradient(110deg, var(--ac-fg) 0%, var(--ac-primary-strong) 55%, var(--ac-grad-3) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.slidev-layout.section h1 + p {
+  color: var(--ac-fg-muted);
+  font-size: 1.25rem;
+  margin-top: 0.8em;
+}
+
+/* =============================================================================
+   intro — the deck's opening slide (course / semester / teacher)
+   ========================================================================== */
+.slidev-layout.intro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+.slidev-layout.intro .intro__content {
+  max-width: 90%;
+}
+.slidev-layout.intro h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.04;
+  margin-bottom: 0.3em;
+}
+.slidev-layout.intro h1 + p,
+.slidev-layout.intro p {
+  color: var(--ac-fg-muted);
+  font-size: 1.3rem;
+}
+
+/* Metadata strip (semester / teacher / date) rendered from frontmatter props */
+.slidev-layout.intro .intro__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.2rem;
+  margin-top: 2.4rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--ac-border);
+}
+.slidev-layout.intro .intro__meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.slidev-layout.intro .intro__meta-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ac-fg-faint);
+}
+.slidev-layout.intro .intro__meta-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ac-fg);
+}
+
+/* Gradient eyebrow chip reused by intro */
+.slidev-layout.intro .intro__eyebrow,
+.slidev-layout.outro .outro__eyebrow {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--ac-fg);
+  padding: 0.35em 0.9em;
+  margin-bottom: 1.4rem;
+  border-radius: 999px;
+  border: 1px solid var(--ac-border-strong);
+  background: linear-gradient(120deg, color-mix(in oklab, var(--ac-grad-2) 22%, transparent), color-mix(in oklab, var(--ac-grad-1) 22%, transparent));
+}
+
+/* =============================================================================
+   outro — the deck's closing slide (the mirror of intro), centred
+   ========================================================================== */
+.slidev-layout.outro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+}
+.slidev-layout.outro .outro__content {
+  max-width: 80%;
+}
+
+/* Gradient-filled closing title, echoing the section divider */
+.slidev-layout.outro h1 {
+  font-size: 3.6rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.04;
+  margin-bottom: 0.3em;
+  background: linear-gradient(110deg, var(--ac-fg) 0%, var(--ac-primary-strong) 55%, var(--ac-grad-3) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.slidev-layout.outro h1 + p,
+.slidev-layout.outro p {
+  color: var(--ac-fg-muted);
+  font-size: 1.25rem;
+}
+.slidev-layout.outro ul {
+  display: inline-block;
+  text-align: left;
+}
+
+/* Footer strip (teacher / contact / date) rendered from frontmatter props */
+.slidev-layout.outro .outro__meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.2rem;
+  margin-top: 2.4rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--ac-border);
+}
+.slidev-layout.outro .outro__meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.slidev-layout.outro .outro__meta-label {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ac-fg-faint);
+}
+.slidev-layout.outro .outro__meta-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ac-fg);
+}

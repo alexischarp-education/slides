@@ -1,0 +1,16 @@
+{
+  "name": "{{NAME}}",
+  "version": "0.1.0",
+  "license": "UNLICENSED",
+  "type": "module",
+  "scripts": {
+    "dev": "slidev --open",
+    "build": "slidev build",
+    "export": "slidev export"
+  },
+  "dependencies": {
+    "@alexischarp/slides-theme": "workspace:*",
+    "@slidev/cli": "^52.16.0",
+    "vue": "^3.5.33"
+  }
+}
