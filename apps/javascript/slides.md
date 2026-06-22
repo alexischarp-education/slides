@@ -18,6 +18,26 @@ date: '2026 – 2027'
 
 ---
 
+# Copyright & licence
+
+<span class="spacing"></span>
+
+Ce support est mis à disposition sous licence [CC-BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/).
+
+Cela signifie que vous pouvez **partager** et **adapter** le contenu, à condition de **mentionner l'auteur** et de **redistribuer sous la même licence**.
+
+<span class="spacing"></span>
+
+Ce support a été construit sur les bases d'un cours de [Philippe Gambette](mailto:philippe.gambette@univ-eiffel.fr), enseignant-chercheur à l'Université Gustave Eiffel.
+
+<span class="spacing"></span>
+
+Ressource principale utilisée pour la construction de ce cours :
+
+- [MDN Web Docs](https://developer.mozilla.org/fr/docs/Web/JavaScript)
+
+---
+
 # Informations pratiques
 
 Pour le bon déroulement du module, voici quelques infos utiles.
