@@ -1,0 +1,66 @@
+/* ----- Inline code --------------------------------------------------------- */
+.slidev-layout :not(pre) > code {
+  font-family: var(--ac-font-mono);
+  font-variant-ligatures: none;
+  font-size: 0.88em;
+  background: var(--ac-bg-elevated-2);
+  color: var(--ac-primary-strong);
+  border: 1px solid var(--ac-border);
+  border-radius: 6px;
+  padding: 0.12em 0.4em;
+}
+
+/* ----- Fenced code blocks -------------------------------------------------- */
+.slidev-layout pre.slidev-code,
+.slidev-layout .shiki-magic-move-container pre {
+  font-family: var(--ac-font-mono);
+  font-variant-ligatures: none;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  background: var(--slidev-code-background);
+  border: 1px solid var(--ac-border);
+  border-radius: var(--ac-radius);
+  padding: 1em 1.1em;
+  box-shadow: 0 14px 40px -18px rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(6px);
+  overflow: auto;
+}
+
+/* Keep the Shiki-provided background from fighting our container background. */
+.slidev-layout pre.slidev-code.shiki {
+  background: var(--slidev-code-background) !important;
+}
+
+/* Line-by-line highlighting ({1|2-3|all}) -----------------------------------
+   Slidev tags focused lines and dims the rest. We give focused lines a soft
+   tinted band with a gradient accent bar, and fade the others. */
+.slidev-layout .slidev-code .line {
+  transition:
+    opacity 0.4s ease,
+    background-color 0.4s ease;
+  padding: 0 0.4em;
+  margin: 0 -0.4em;
+  border-left: 2px solid transparent;
+}
+.slidev-layout .slidev-code .line.highlighted,
+.slidev-layout .slidev-code .line.slidev-code-highlighted {
+  background: color-mix(in oklab, var(--ac-primary) 14%, transparent);
+  border-left-color: var(--ac-primary);
+}
+.slidev-layout .slidev-code .line.dishonored,
+.slidev-layout .slidev-code .line.slidev-code-dishonored {
+  opacity: 0.4;
+}
+
+/* Filename / language tab shown via ```ts [file.ts] */
+.slidev-layout .slidev-code-wrapper .slidev-code-line-numbers,
+.slidev-layout .slidev-code .line-numbers {
+  color: var(--ac-fg-faint);
+}
+
+/* ----- Code groups / tabs -------------------------------------------------- */
+.slidev-layout {
+  --slidev-code-tab-divider: var(--ac-border);
+  --slidev-code-tab-text-color: var(--ac-fg-faint);
+  --slidev-code-tab-active-text-color: var(--ac-primary);
+}

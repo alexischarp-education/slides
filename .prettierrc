@@ -1,0 +1,17 @@
+{
+  "arrowParens": "always",
+  "printWidth": 180,
+  "singleQuote": true,
+  "semi": true,
+  "tabWidth": 2,
+  "trailingComma": "all",
+  "overrides": [
+    {
+      "files": ["slides.md", "pages/*.md"],
+      "options": {
+        "parser": "slidev",
+        "plugins": ["prettier-plugin-slidev"]
+      }
+    }
+  ]
+}

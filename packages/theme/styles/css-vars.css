@@ -1,0 +1,83 @@
+/* =============================================================================
+   Design tokens
+   -----------------------------------------------------------------------------
+   The whole theme reads from `--ac-*` custom properties. Switching mode
+   (dark / light / print) only re-assigns these variables, so every layout and
+   component follows along without duplicated rules.
+
+   Contrast targets: body text and primary links meet WCAG AA (>= 4.5:1) in
+   every mode; large headings comfortably exceed it.
+   ========================================================================== */
+
+:root {
+  --ac-font-sans: 'Space Grotesk', 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --ac-font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', 'Cascadia Code', Menlo, Consolas, monospace;
+  --ac-radius: 14px;
+  --ac-radius-sm: 8px;
+  --ac-anim-state: running;
+  --ac-bg-display: block;
+
+  --ac-grad-1: #ff3d9a;
+  --ac-grad-2: #7c5cff;
+  --ac-grad-3: #2dd4ff;
+  --ac-grad-4: #4f7bff;
+}
+
+/* -----------------------------------------------------------------------------
+   DARK MODE (the theme's primary, default identity)
+   --------------------------------------------------------------------------- */
+html.dark {
+  --ac-bg: #0a0812;
+  --ac-bg-elevated: #16121f;
+  --ac-bg-elevated-2: #1f1a2e;
+  --ac-border: rgba(255, 255, 255, 0.12);
+  --ac-border-strong: rgba(255, 255, 255, 0.22);
+
+  --ac-fg: #f5f3ff;
+  --ac-fg-muted: #b8b1cf;
+  --ac-fg-faint: #8a83a3;
+
+  --ac-primary: #a78bfa;
+  --ac-primary-strong: #c4b5fd;
+  --ac-accent: #f472b6;
+
+  --ac-bg-opacity: 0.42;
+  --ac-bg-blur: 90px;
+  --ac-vignette: radial-gradient(120% 120% at 50% 0%, transparent 40%, rgba(5, 4, 10, 0.55) 100%);
+
+  --slidev-theme-primary: var(--ac-primary);
+  --slidev-code-background: rgba(20, 16, 30, 0.82);
+  --slidev-code-foreground: #e7e3f5;
+}
+
+/* -----------------------------------------------------------------------------
+   LIGHT MODE (gradients kept subtle and pale)
+   --------------------------------------------------------------------------- */
+html.light {
+  --ac-bg: #faf9ff;
+  --ac-bg-elevated: #ffffff;
+  --ac-bg-elevated-2: #f2eefb;
+  --ac-border: rgba(28, 20, 50, 0.12);
+  --ac-border-strong: rgba(28, 20, 50, 0.22);
+
+  --ac-fg: #161427;
+  --ac-fg-muted: #514a68;
+  --ac-fg-faint: #6b6485;
+
+  --ac-primary: #6d28d9;
+  --ac-primary-strong: #5b21b6;
+  --ac-accent: #db2777;
+
+  --ac-bg-opacity: 0.5;
+  --ac-bg-blur: 100px;
+  --ac-vignette: radial-gradient(120% 120% at 50% 0%, transparent 55%, rgba(250, 249, 255, 0.6) 100%);
+
+  --ac-grad-1: #f9a8d4;
+  --ac-grad-2: #c4b5fd;
+  --ac-grad-3: #a5f3fc;
+  --ac-grad-4: #bfdbfe;
+
+  --slidev-theme-primary: var(--ac-primary);
+  --slidev-code-background: #ffffff;
+  --slidev-code-foreground: #161427;
+}

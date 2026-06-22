@@ -1,0 +1,138 @@
+/* =============================================================================
+   Print mode — sober, high-contrast, ink-friendly, no motion
+   -----------------------------------------------------------------------------
+   Activated by any of:
+     • `?print` in the URL (or the export route) → Slidev adds `html.print`
+     • the browser print dialog / PDF export      → `@media print`
+     • a manual `.slidev-layout-print` class on a slide
+   All three share the same flat, white-background palette.
+   ========================================================================== */
+
+/* ----- Token overrides (screen-side print views: ?print / export) ---------- */
+html.print,
+.slidev-layout-print {
+  --ac-bg: #ffffff;
+  --ac-bg-elevated: #ffffff;
+  --ac-bg-elevated-2: #f4f4f6;
+  --ac-border: #d4d4d8;
+  --ac-border-strong: #9b9ba3;
+
+  --ac-fg: #111111;
+  --ac-fg-muted: #333333;
+  --ac-fg-faint: #555555;
+
+  --ac-primary: #5b21b6;
+  --ac-primary-strong: #4c1d95;
+
+  /* Freeze the animation and remove the gradient layer entirely */
+  --ac-anim-state: paused;
+  --ac-bg-display: none;
+
+  --slidev-theme-primary: var(--ac-primary);
+  --slidev-code-background: #f6f6f8;
+  --slidev-code-foreground: #1b1b1b;
+  --slidev-slide-container-background: #ffffff;
+}
+
+/* ----- Token overrides for the actual print medium -------------------------
+   `html.dark`/`html.light` keep their class while printing, so we match their
+   specificity (0,1,1) here — and being imported last, these win. */
+@media print {
+  html,
+  html.dark,
+  html.light {
+    --ac-bg: #ffffff;
+    --ac-bg-elevated: #ffffff;
+    --ac-bg-elevated-2: #f4f4f6;
+    --ac-border: #d4d4d8;
+    --ac-border-strong: #9b9ba3;
+
+    --ac-fg: #111111;
+    --ac-fg-muted: #333333;
+    --ac-fg-faint: #555555;
+
+    --ac-primary: #5b21b6;
+    --ac-primary-strong: #4c1d95;
+
+    --ac-anim-state: paused;
+    --ac-bg-display: none;
+
+    --slidev-theme-primary: var(--ac-primary);
+    --slidev-code-background: #f6f6f8;
+    --slidev-code-foreground: #1b1b1b;
+    --slidev-slide-container-background: #ffffff;
+  }
+}
+
+/* ----- Shared print appearance --------------------------------------------- */
+
+/* Remove the animated background layer for the full-deck print triggers.
+   (The manual `.slidev-layout-print` hook doesn't touch the global layer — its
+   own opaque white background already covers the gradient on that one slide, so
+   adjacent preloaded slides keep their gradient.) */
+html.print .ac-bg {
+  display: none !important;
+}
+@media print {
+  .ac-bg {
+    display: none !important;
+  }
+}
+
+/* With the gradient gone, restore an opaque white slide surface so nothing
+   shows through to Slidev's default (black) print container background. */
+html.print .slidev-slide-content {
+  background: #ffffff !important;
+}
+@media print {
+  .slidev-slide-content {
+    background: #ffffff !important;
+  }
+}
+
+/* For the manual class, make the slide opaque so nothing bleeds through */
+.slidev-layout-print {
+  background: #ffffff !important;
+}
+
+/* Flatten elevated surfaces: drop shadows, blur and heavy fills to save ink */
+html.print .slidev-layout pre.slidev-code,
+.slidev-layout-print pre.slidev-code {
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  border: 1px solid #c9c9d0 !important;
+}
+@media print {
+  .slidev-layout pre.slidev-code {
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    border: 1px solid #c9c9d0 !important;
+  }
+}
+
+/* Solid (non-gradient) titles in print: gradient-clipped text would print as
+   transparent on some engines, so force a readable dark fill. */
+html.print .slidev-layout.section h1,
+.slidev-layout-print.section h1,
+html.print .slidev-layout.outro h1,
+.slidev-layout-print.outro h1 {
+  background: none !important;
+  -webkit-text-fill-color: var(--ac-fg) !important;
+  color: var(--ac-fg) !important;
+}
+@media print {
+  .slidev-layout.section h1,
+  .slidev-layout.outro h1 {
+    background: none !important;
+    -webkit-text-fill-color: var(--ac-fg) !important;
+    color: var(--ac-fg) !important;
+  }
+  /* Hide the oversized ghost index — pure ink with no information value */
+  .slidev-layout.section .section__index {
+    display: none !important;
+  }
+}
+html.print .slidev-layout.section .section__index,
+.slidev-layout-print.section .section__index {
+  display: none !important;
+}
