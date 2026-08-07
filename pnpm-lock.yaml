@@ -239,6 +239,30 @@ importers:
         specifier: workspace:*
         version: link:../../packages/eslint-config
 
+  apps/modern-front-end:
+    dependencies:
+      '@alexischarp/slides-theme':
+        specifier: workspace:*
+        version: link:../../packages/theme
+      '@slidev/cli':
+        specifier: ^52.16.0
+        version: 52.16.0(@nuxt/kit@3.21.8)(@types/markdown-it@14.1.2)(@types/node@22.20.0)(@vue/compiler-sfc@3.5.38)(lightningcss@1.32.0)(markdown-it@14.2.0)(playwright-chromium@1.61.0)(postcss@8.5.15)(rolldown@1.0.3)
+      vue:
+        specifier: ^3.5.33
+        version: 3.5.38(typescript@6.0.3)
+
+  apps/react-for-beginners:
+    dependencies:
+      '@alexischarp/slides-theme':
+        specifier: workspace:*
+        version: link:../../packages/theme
+      '@slidev/cli':
+        specifier: ^52.16.0
+        version: 52.16.0(@nuxt/kit@3.21.8)(@types/markdown-it@14.1.2)(@types/node@22.20.0)(@vue/compiler-sfc@3.5.38)(lightningcss@1.32.0)(markdown-it@14.2.0)(playwright-chromium@1.61.0)(postcss@8.5.15)(rolldown@1.0.3)
+      vue:
+        specifier: ^3.5.33
+        version: 3.5.38(typescript@6.0.3)
+
   packages/eslint-config:
     dependencies:
       '@eslint/js':

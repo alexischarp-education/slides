@@ -1,0 +1,23 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "modern-front-end",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["--filter", "@alexischarp/slides-modern-front-end", "exec", "slidev", "--port", "3030"],
+      "port": 3030
+    },
+    {
+      "name": "react-for-beginners",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["--filter", "@alexischarp/slides-react-for-beginners", "exec", "slidev", "--port", "3031"],
+      "port": 3031
+    },
+    {
+      "name": "javascript",
+      "runtimeExecutable": "pnpm",
+      "runtimeArgs": ["--filter", "@alexischarp/slides-javascript", "exec", "slidev", "--port", "3032"],
+      "port": 3032
+    }
+  ]
+}
